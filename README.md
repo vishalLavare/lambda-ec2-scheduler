@@ -28,41 +28,11 @@ Before deploying this solution, ensure you have the following:
 4. Select **Python 3.x** as the runtime.
 5. Assign the IAM role created in Step 1.
 6. Click **Create Function**.
-7. Replace the default Lambda function code with the following:
-
-```python
-import boto3
-import os
-
-ec2 = boto3.client('ec2')
-INSTANCE_IDS = os.environ['INSTANCE_IDS'].split(',')
-
-def lambda_handler(event, context):
-    ec2.start_instances(InstanceIds=INSTANCE_IDS)
-    print(f"Started instances: {INSTANCE_IDS}")
-```
-
-8. Add the following environment variable:
-   - `INSTANCE_IDS`: `<your-ec2-instance-id>` (comma-separated for multiple instances)
+7. Upload the code file `ec2_start.py` to the function.
 
 #### Lambda Function 2: EC2 Stop
 1. Repeat steps 1-6 above, but name the function `EC2StopFunction`.
-2. Replace the default Lambda function code with the following:
-
-```python
-import boto3
-import os
-
-ec2 = boto3.client('ec2')
-INSTANCE_IDS = os.environ['INSTANCE_IDS'].split(',')
-
-def lambda_handler(event, context):
-    ec2.stop_instances(InstanceIds=INSTANCE_IDS)
-    print(f"Stopped instances: {INSTANCE_IDS}")
-```
-
-3. Add the same environment variable:
-   - `INSTANCE_IDS`: `<your-ec2-instance-id>`
+2. Upload the code file `ec2_stop.py` to the function.
 
 ### Step 3: Create Amazon EventBridge Schedules
 #### Schedule 1: EC2 Start
