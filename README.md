@@ -56,8 +56,3 @@ Before deploying this solution, ensure you have the following:
 
 ## Conclusion
 This setup automates EC2 instance scheduling using AWS Lambda and EventBridge. You can modify the cron expressions and instance IDs to fit your requirements.
-
-## References
-- [AWS Lambda Documentation](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
-- [Amazon EC2 Documentation](https://docs.aws.amazon.com/ec2/index.html)
-- [Amazon EventBridge Documentation](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html)
